@@ -33,7 +33,16 @@ dependencies {
     testImplementation "junit:junit:$junit"
     androidTestImplementation "androidx.test.ext:junit:$junitx"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_core"
-    implementation "org.jsoup:jsoup:$jsoup"
+
+    //logging
     implementation "com.jakewharton.timber:timber:$timber"
+
+    // Retrofit for networking
+    implementation "com.squareup.retrofit2:retrofit:$retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit"
+    implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$retrofit_coroutines_adapter"
+
+    //Test
+    testImplementation "org.hamcrest:hamcrest-all:$hamcrestVersion"
 
 }
