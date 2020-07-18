@@ -1,9 +1,7 @@
 package uy.leslier.exchange.data.network
 
-import java.math.BigDecimal
-
 data class ExchangeNetwork(
-    val timestamp: BigDecimal,
+    val timestamp: Long,
     val rates: RatesNetwork
 )
 
@@ -15,6 +13,6 @@ data class RatesNetwork(
 )
 
 data class RateNetwork(
-    val sell: BigDecimal,
-    val buy: BigDecimal
+    val sell: Double,
+    val buy: Double
 )
