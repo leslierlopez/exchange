@@ -3,7 +3,6 @@ package uy.leslier.exchange.data.repository
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.IO
 import kotlinx.coroutines.withContext
 import uy.leslier.exchange.data.database.ExchangeDatabase
 import uy.leslier.exchange.data.database.toDomainModel
@@ -17,6 +16,12 @@ class ExchangeRepository(private val database: ExchangeDatabase) {
         Transformations.map(database.exchangeDao.getAllExchanges()) {
             it.toDomainModel()
         }
+
+    suspend fun getToday(): Exchange? {
+        refresh()
+        val today = database.exchangeDao.getLast()
+        return today?.toDomainModel()
+    }
 
     suspend fun refresh() {
         withContext(Dispatchers.IO) {

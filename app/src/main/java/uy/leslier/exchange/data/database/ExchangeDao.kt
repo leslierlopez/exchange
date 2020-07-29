@@ -22,6 +22,6 @@ interface ExchangeDao {
     fun getAllExchanges(): LiveData<List<ExchangeEntry>>
 
     @Query("SELECT * FROM exchange_table ORDER BY timestamp DESC LIMIT 1")
-    fun getToday(): ExchangeEntry?
+    fun getLast(): ExchangeEntry?
 
 }

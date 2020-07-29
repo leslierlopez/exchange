@@ -12,6 +12,7 @@ android {
         minSdkVersion 19
         targetSdkVersion 29
         versionCode 1
+        vectorDrawables.useSupportLibrary = true
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -23,6 +24,19 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    dataBinding {
+        enabled = true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
 }
 
 dependencies {
@@ -31,9 +45,20 @@ dependencies {
     implementation "androidx.core:core-ktx:$core_ktx"
     implementation "androidx.appcompat:appcompat:$appcompat"
     implementation "androidx.constraintlayout:constraintlayout:$constraintlayout"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
     testImplementation "junit:junit:$junit"
     androidTestImplementation "androidx.test.ext:junit:$junitx"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_core"
+
+    // Material Design
+    implementation "com.google.android.material:material:$version_material"
+
+    //navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+    androidTestImplementation "androidx.navigation:navigation-testing:$nav_version"
 
     //logging
     implementation "com.jakewharton.timber:timber:$timber"
